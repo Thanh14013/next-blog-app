@@ -10,11 +10,22 @@ const LoadDB = async () =>{
 
 LoadDB();
 
+
+// API entry point for fetching all blogs
 export async function GET(request){
-    console.log("Blog GET hit")
-    return NextResponse.json({message: "Blog GET request successful"})
+
+    const blogId = request.nextUrl.searchParams.get("id");
+    if(blogId) {
+        const blog = await BlogModel.findById(blogId);
+        return NextResponse.json({blog});
+    }
+    else{
+        const blogs = await BlogModel.find({});
+        return NextResponse.json({blogs});
+    }
 }
 
+//API entry point for creating a new blog
 export async function POST(request){
     try {
         console.log("Blog POST hit")

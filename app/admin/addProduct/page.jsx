@@ -38,6 +38,14 @@ const page = () => {
     console.log(respond.data);
     if (respond.data.success) {
       toast.success('Blog added successfully!');
+      setImage(false);
+      setData({
+        title: '',
+        description: '',
+        category: 'Startup',
+        author: 'Alex Bennett',
+        author_img: '/author_img.png'
+      });
     }
     else{
       toast.error('Something went wrong, please try again later.');
