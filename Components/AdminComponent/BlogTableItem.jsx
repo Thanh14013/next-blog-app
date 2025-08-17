@@ -4,7 +4,7 @@ import React from 'react'
 
 const BlogTableItem = ({author_image,title,author,date,mongoId,deleteBlog}) => {
 
-    const blogDate = new Date(date)
+  const blogDate = new Date(date)
 
   return (
     <tr className='bg-white border-b'>
